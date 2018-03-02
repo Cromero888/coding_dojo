@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<p><a href="/bright_ideas/">Bright Ideas</a> | <a href="/logout/">Logout</a></p>
+		<p>{{quote.user.first_name}} says: {{quote.quote}}</p><br><br><br>
+		<p>Users who liked this post:</p>
+		{%for entry in likes%}
+		<p><a href="/bright_ideas/user/{{entry.user_id}}/">{{entry.user.first_name}} {{entry.user.last_name}}</a></p>
+		{%empty%}
+		<p>No one likes this post</p>
+		{%endfor%}
+	</div>
+
+</body>
+</html>

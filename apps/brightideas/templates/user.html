@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{user.first_name}}'s profile</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+	</style>
+</head>
+<body>
+	<p><a href="/bright_ideas/">Bright Ideas</a> | <a href="/logout/">Logout</a></p><br>
+	<p>Name: {{user.first_name}} {{user.last_name}}</p>
+	<p>Email: {{user.email}}</p><br><br><br><br>
+	<p>Number of Quotes submitted: {{quote}}</p>
+	<p>Number of Liked: {{likes}}</p>
+
+
+</body>
+</html>

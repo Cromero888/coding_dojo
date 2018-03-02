@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Reg | Home</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+			padding:10px;
+		}
+		form{
+			width: 300px;
+			margin:10px;
+			display:inline-block;
+			margin-bottom: 8px;
+		}
+		input{
+			display:inline-block;
+			margin-bottom: 5px;
+		}
+		</style>
+</head>
+<body>
+	<div class="wrapper">
+		{% if messages %}
+		<ul class='messages'>
+		{% for message in messages%}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{%endfor%}
+			{%endif%}
+		</li>
+		<div class="register">
+			<h2>Registration</h2>
+			<form action="/register/" method="post">
+				{%csrf_token%}
+				<input type="text" name="first_name" placeholder="First Name">
+				<input type="text" name="last_name" placeholder="Last Name">
+				<input type="text" name="remail" placeholder="Email">
+				<input type="password" name="rpass1" placeholder="Password">
+				<input type="password" name="rpass2" placeholder="Confirm Password">
+				<input type="submit" name="submit" value="Register">
+			</form>	
+		</div>
+		<div class="login">
+			<h2>Login</h2>
+			<form action="/login/" method="post">
+				{%csrf_token%}
+				<input type="text" name="email" placeholder="Email">
+				<input type="password" name="password" placeholder="Password">
+				<input type="submit" name="submit" value="Login">
+			</form>	
+
+		</div>
+	</div>
+</body>
+</html>

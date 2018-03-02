@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		.wrapper{
+			width:900px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<a href="/logout/">Logout</a>
+		<h3>Hi {{currentuser.first_name}}!</h3><br><br>
+		<form action="idea/" method="post">
+			{%csrf_token%}
+			<input type="text" name="idea" placeholder="Something Witty Here">
+			<input type="submit" name="submit" value="Idea!">
+		</form><br><br>
+		{% for entry in quote %}
+		<p><a href="user/{{entry.user.id}}/">{{entry.user.first_name}}</a> said: {{entry.quote}}</p>
+		<p><a href="like/{{entry.id}}/">like</a> | <a href="post/{{entry.id}}">{{entry.usersliking}} people</a> like this <a href="delete/{{entry.id}}/">Delete this</a></p>
+
+		{%endfor%}
+
+
+
+	</div>
+
+</body>
+</html>
